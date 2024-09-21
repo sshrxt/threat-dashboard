@@ -17,12 +17,15 @@ const MachineCardContainer = () => {
     let sortedMachines;
 
     if (option === "threats") {
-      // Sort by risk status
-      sortedMachines = [...machines].sort((a, b) => {
+      const favorites = machines.filter((machine) => machine.isFavorite);
+      const nonFavorites = machines.filter((machine) => !machine.isFavorite);
+      
+      const sortedNonFavorites = nonFavorites.sort((a, b) => {
         const riskA = riskPriority[a.riskStatus] || 0;
         const riskB = riskPriority[b.riskStatus] || 0;
         return riskB - riskA; // Higher risk status first
       });
+      sortedMachines = [...favorites, ...sortedNonFavorites];
     } else if (option === "machine-number") {
       // Separate favorites and non-favorites
       const favorites = machines.filter((machine) => machine.isFavorite);
