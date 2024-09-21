@@ -6,7 +6,7 @@ import { TextGenerateEffect } from "./ui/TextGenerate";
 
 const Navbar = () => {
   return (
-    <div className="h-[10vh] w-[100vw] bg-black-400 flex items-center justify-between px-4 mx-11 shadow-[0_4px_20px_rgba(0,191,255,0.8)] z-10 relative">
+    <div className="h-[10vh] w-[100vw] bg-black-400 flex items-center justify-between px-4 mx-11 shadow-[0_2px_10px_rgba(0,191,255,0.5)] z-10 relative">
       <TextGenerateEffect
         className="text-center text-3xl"
         words="Welcome, Shrut"
@@ -30,4 +30,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
