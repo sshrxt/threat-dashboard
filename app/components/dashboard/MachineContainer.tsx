@@ -8,7 +8,6 @@ const MachineContainer = () => {
   return (
     <div className='h-full'>
         <Analytics />
-        <Sort />
         <MachineCardContainer />
         <p>hello</p>
     </div>

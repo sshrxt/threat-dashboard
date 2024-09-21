@@ -9,11 +9,11 @@ const machines = [
     name: "Machine B",
     riskStatus: "high",
     anomalies: 15,
-    isFavorite: true,
+    isFavorite: false,
   },
   {
     name: "Machine C",
-    riskStatus: "medium",
+    riskStatus: "low",
     anomalies: 5,
     isFavorite: false,
   },
@@ -25,7 +25,7 @@ const machines = [
   },
   {
     name: "Machine E",
-    riskStatus: "low",
+    riskStatus: "high",
     anomalies: 1,
     isFavorite: false,
   },

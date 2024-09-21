@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaStar, FaRegStar } from "react-icons/fa"; // Import star icons
 
 type RiskStatus = "low" | "medium" | "high";
@@ -8,14 +8,14 @@ const MachineCard = ({
   riskStatus,
   anomalies,
   isFavorite,
+  onToggleFavorite
 }: {
   name: string;
-  riskStatus: RiskStatus; // Specify the type for riskStatus
+  riskStatus: RiskStatus | string; // Specify the type for riskStatus
   anomalies: number;
   isFavorite: boolean;
+  onToggleFavorite: () => void;
 }) => {
-  const [isFavorited, setIsFavorited] = useState(isFavorite); // Track the favorite status
-
   // Define styles based on risk status
   const riskStyles: Record<RiskStatus, { bgColor: string; borderColor: string; textColor: string }> = {
     low: {
@@ -37,10 +37,6 @@ const MachineCard = ({
 
   const { bgColor, borderColor, textColor } = riskStyles[riskStatus];
 
-  const toggleFavorite = () => {
-    setIsFavorited((prev) => !prev); // Toggle the favorite status
-  };
-
   return (
     <div className={`w-full h-[350px] rounded-3xl bg-gradient-to-t from-blue-950 to-black-600 shadow-md m-2 p-4 flex flex-col justify-between`}>
       <div className="flex flex-col justify-center gap-4">
@@ -52,8 +48,8 @@ const MachineCard = ({
 
       <div className="flex items-center justify-between">
         <h1 className="text-4xl text-white-200">{anomalies} Anomalies</h1>
-        <div onClick={toggleFavorite} className="cursor-pointer">
-          {isFavorited ? (
+        <div onClick={onToggleFavorite} className="cursor-pointer">
+          {isFavorite ? (
             <FaStar className="text-yellow-500 text-2xl" /> // Filled yellow star for favorited
           ) : (
             <FaRegStar className="text-yellow-500 text-2xl" /> // Outlined star for non-favorited
